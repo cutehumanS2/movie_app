@@ -1,17 +1,27 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import './index.css';
 import App from './App';
-import reportWebVitals from './reportWebVitals';
+
 
 ReactDOM.render(
-  <React.StrictMode>
-    <App />
-  </React.StrictMode>,
+    <App />,
   document.getElementById('root')
 );
+/*<App /> ~> component
+리액트는 component와 함께 동작, 모든 것은 component
+component가 데이터를 보여주게 할 것
+-component는 HTML을 반환하는 함수
+*/
 
-// If you want to start measuring performance in your app, pass a function
-// to log results (for example: reportWebVitals(console.log))
-// or send to an analytics endpoint. Learn more: https://bit.ly/CRA-vitals
-reportWebVitals();
+/*
+<App /><Potato />, ~~오류 발생
+: 리액트 Application이 하나의 component만을 
+rendering해야 하기 때문에 
+그 component => App
+~~> Potato를 App 옆에 두는 대신 App 안에 넣을 것.
+
+(*)리액트 Application은 한 번에 하나의 component만
+rendering 할 수 있음
+==>>모든 것은 App 안에 들어가야만 함
+ */
+

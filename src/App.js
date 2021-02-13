@@ -1,6 +1,7 @@
 import React from "react";
 import axios from "axios";
 import Movie from "./Movie"; //Movie.js import
+import "./App.css";
 
 class App extends React.Component{
   //미래에 쓰고자하는 state를 선언하는 것 필수는x => 그저 좋은 습관
@@ -43,21 +44,34 @@ class App extends React.Component{
     //return <div>{this.state.isLoading ? "Loading" : "We are ready"}</div>;
     //△, 항상 this.state 쓰고 싶지x ~> ES6 문법 사용
     const { isLoading, movies } = this.state; //state로부터 movies 갖고 와야 함
+    
     //return <div>{ isLoading ? "Loading..." : "We are ready" }</div>;
-    return <div>{ isLoading ? "Loading..." : movies.map(movie => (
-      //console.log(movie);
-      //map으로부터 항상 뭔가 return해야 함
-      //return <Movie 
-      <Movie
-        key={movie.id}
-        id={movie.id} 
-        year={movie.year} 
-        title={movie.title} 
-        summary={movie.summary}
-        poster={movie.medium_cover_image}
-      />)
-  )}</div>;
-
+    return (
+      //className _JS class 안에 있으면 component class에 의해
+      //혼란스러워짐, HTML의 class는 신경x
+      //f12 보면 className이 class로 되었을 것임
+      <section className="container">
+        { isLoading ? (
+          <div className="loader">
+              <span className="loader_text">Loading...</span>
+            </div>)
+          : (
+          //moive를 movie component로 만듦
+          <div className="movies">
+            {movies.map(movie => (
+              <Movie
+                key={movie.id}
+                id={movie.id}
+                year={movie.year}
+                title={movie.title}
+                summary={movie.summary}
+                poster={movie.medium_cover_image}
+                genres={movie.genres}/>
+            ))}
+          </div>
+        )}</section>
+    );
   }
 }
+
 export default App;

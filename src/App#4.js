@@ -40,4 +40,21 @@
  return <div>{ isLoading ? "Loading..." : movies.map() }</div>;
 
 2. renderMovies()라는 다른 함수 생성
+
+
+#4-2_react에서 component 꾸미기
+: style component 사용할 것 _무료 수업 있다고 함
+
+1. JS 방식 (비추)
+: 각 태그에 style={{backgroundColor:"red"}} 추가
+
+2.css file 만들기 : Movie.css
+-모든 component에 대한 css파일 만들 수 있음
+-아니면 하나의 css 파일에 모든 것 넣기
+
+#4-3
+-className _JS class 안에 있으면 component class에 의해 
+혼란스러워짐, HTML의 class는 신경x
+f12 보면 className이 class로 되었을 것임
+
 */
